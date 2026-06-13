@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İyi ki doğdun Sevgilim ♥️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,400;1,500&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9eff2;
+      --pink: #e8748a;
+      --pink-light: #fceef1;
+      --text: #2d2d2d;
+      --muted: #999;
+      --soft: #c4829a;
+      --border: #eadde2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+      background: #f9eff2;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 560px; }
+
+    .hero-emoji {
+      font-size: 52px;
+      display: block;
+      margin-bottom: 24px;
+      animation: gentle-bounce 2.5s ease-in-out infinite;
+    }
+
+    @keyframes gentle-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(40px, 9vw, 72px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 .name {
+      color: var(--pink);
+      display: block;
+      margin-top: 4px;
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.24em;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.95;
+    }
+
+    .hero-msg {
+      font-size: 18px;
+      color: var(--muted);
+      font-weight: 300;
+      margin-top: 8px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      animation: fade-bob 2s ease-in-out infinite;
+    }
+
+    @keyframes fade-bob {
+      0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+    }
+
+    /* ── SAYAÇ ── */
+    .counter-wrap {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .counter-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .counters-grid {
+      display: flex;
+      justify-content: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .count-item {
+      flex: 1;
+      padding: 10px 8px;
+      border-right: 1px solid var(--border);
+    }
+
+    .count-item:last-child { border-right: none; }
+
+    .count-num {
+      font-family: 'Lora', serif;
+      font-size: clamp(36px, 7vw, 58px);
+      font-weight: 600;
+      color: var(--pink);
+      line-height: 1;
+      display: block;
+    }
+
+    .count-lbl {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* ── GENEL SAYFA ── */
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 36px;
+    }
+
+    /* ── MEKTUP ── */
+    .letter-section {
+      padding: 88px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .letter-body {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      line-height: 2;
+      color: #3a3030;
+    }
+
+    .letter-body p { margin-bottom: 24px; }
+    .letter-body p:last-child { margin-bottom: 0; }
+
+    .letter-salutation {
+      font-style: italic;
+      color: var(--pink);
+      font-size: 20px;
+      display: block;
+      margin-bottom: 28px;
+    }
+
+    .letter-sign {
+      margin-top: 44px;
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      color: var(--muted);
+      font-style: italic;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .letter-sign strong { color: var(--pink); font-style: normal; }
+
+    /* ── POLAROİD SCATTER ── */
+    .scatter-section {
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Geniş kanvas — fotoğraflar taşabilsin */
+    .scatter-canvas {
+      position: relative;
+      width: 100%;
+      min-height: 900px;
+    }
+
+    .pol {
+      position: absolute;
+      background: white;
+      padding: 10px 10px 36px 10px;
+      box-shadow: 2px 5px 20px rgba(42,26,32,0.12);
+      display: inline-block;
+      cursor: default;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pol:hover {
+      box-shadow: 4px 10px 32px rgba(42,26,32,0.18);
+      z-index: 10 !important;
+    }
+
+    .pol img {
+      display: block;
+      object-fit: cover;
+    }
+
+    /* placeholder kutu — fotoğraf eklenince gizle */
+    .pol-ph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0e8eb;
+      color: #ccc;
+      font-size: 12px;
+    }
+
+    .pol-caption {
+      font-family: 'Lora', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: #aaa;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* boyutlar */
+    .pol-lg .pol-ph, .pol-lg img { width: 240px; height: 280px; }
+    .pol-md .pol-ph, .pol-md img { width: 180px; height: 210px; }
+    .pol-sm .pol-ph, .pol-sm img { width: 140px; height: 165px; }
+
+    /* ── ANLAR ── */
+    .moments-section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .moment-item {
+      margin-bottom: 48px;
+    }
+
+    .moment-item:last-child { margin-bottom: 0; }
+
+    .moment-emoji {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .moment-text {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #3a3030;
+    }
+
+
+
+    /* ── QUIZ ── */
+    .quiz-section {
+      padding: 82px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quiz-intro {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      color: #55464b;
+      margin: -18px 0 34px;
+    }
+
+    .quiz-stage {
+      position: relative;
+      min-height: 360px;
+    }
+
+    .quiz-card {
+      display: none;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 10px 30px rgba(79,43,57,0.05);
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    .quiz-card.active {
+      display: block;
+      animation: quiz-in .38s ease forwards;
+    }
+
+    .quiz-card.leaving {
+      display: block;
+      animation: quiz-out .32s ease forwards;
+    }
+
+    @keyframes quiz-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes quiz-out {
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .quiz-progress {
+      height: 3px;
+      background: #f1e3e8;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+
+    .quiz-progress-bar {
+      height: 100%;
+      width: 0;
+      background: var(--pink);
+      border-radius: inherit;
+      transition: width .35s ease;
+    }
+
+    .quiz-number {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .quiz-question {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 14px;
+      padding: 13px 15px;
+      text-align: left;
+      font: inherit;
+      color: var(--text);
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .quiz-option:hover:not(:disabled) {
+      transform: translateY(-1px);
+      border-color: #dca5b4;
+    }
+
+    .quiz-option:disabled { cursor: default; }
+    .quiz-option.correct { background: #eef7ef; border-color: #9bc4a1; }
+    .quiz-option.wrong { background: #fff0f2; border-color: #e5a0aa; }
+
+    .quiz-feedback {
+      min-height: 58px;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      line-height: 1.55;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: .25s ease;
+    }
+
+    .quiz-feedback.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .quiz-feedback.is-correct {
+      background: #eef7ef;
+      color: #42654a;
+    }
+
+    .quiz-feedback.is-wrong {
+      background: #fff0f2;
+      color: #8a4f59;
+    }
+
+    .quiz-finish {
+      display: none;
+      text-align: center;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px 26px;
+      box-shadow: 0 10px 30px rgba(79,43,57,0.05);
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .quiz-finish.show {
+      display: block;
+      animation: quiz-in .4s ease forwards;
+    }
+
+    .quiz-finish-score {
+      display: block;
+      color: var(--pink);
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    /* ── YENİ YAŞ PLANI ── */
+    .plans-section {
+      padding: 82px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plans-note {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #4b3d42;
+      margin: -18px 0 34px;
+    }
+
+    .plans-list {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .plans-list::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .plan-item {
+      position: relative;
+      margin-bottom: 34px;
+      padding: 4px 0 0 18px;
+    }
+
+    .plan-item:last-child { margin-bottom: 0; }
+
+    .plan-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 10px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--pink);
+      box-shadow: 0 0 0 6px var(--bg);
+    }
+
+    .plan-tag {
+      font-size: 10px;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .plan-title {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .plan-text {
+      font-size: 15px;
+      color: #6f6267;
+      line-height: 1.8;
+    }
+
+    .promise-box {
+      margin-top: 42px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      text-align: center;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: #4d3e43;
+    }
+
+    /* ── KAPANIŞ ── */
+    .closing {
+      text-align: center;
+      padding: 100px 28px 110px;
+    }
+
+    .closing-heart {
+      font-size: 44px;
+      display: block;
+      margin: 0 auto 24px;
+      animation: heartbeat 1.4s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.18); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.12); }
+      56% { transform: scale(1); }
+    }
+
+    .closing h2 {
+      font-family: 'Lora', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .closing p {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    @media (max-width: 540px) {
+      .scatter-canvas { min-height: 1100px; }
+      .pol-lg .pol-ph, .pol-lg img { width: 160px; height: 190px; }
+      .pol-md .pol-ph, .pol-md img { width: 130px; height: 155px; }
+      .pol-sm .pol-ph, .pol-sm img { width: 110px; height: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-emoji">♥️</span>
+      <h1>
+        İyi ki doğdun
+        <span class="name">Sevgilim</span>
+      </h1>
+      <p class="hero-msg">Bugün bebeğimin 22. yaş günü ☀️</p>
+    </div>
+    <div class="scroll-hint">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- SAYAÇ -->
+  <div class="counter-wrap">
+    <p class="counter-eyebrow">birlikte geçirdiğimiz</p>
+    <div class="counters-grid">
+      <div class="count-item"><span class="count-num" id="c-gun">0</span><div class="count-lbl">gün</div></div>
+      <div class="count-item"><span class="count-num" id="c-saat">00</span><div class="count-lbl">saat</div></div>
+      <div class="count-item"><span class="count-num" id="c-dak">00</span><div class="count-lbl">dakika</div></div>
+      <div class="count-item"><span class="count-num" id="c-san">00</span><div class="count-lbl">saniye</div></div>
+    </div>
+  </div>
+
+  <!-- MEKTUP -->
+  <div class="page">
+    <div class="letter-section">
+      <p class="eyebrow">sana bir şey söylemek istedim</p>
+      <div class="letter-body">
+        <span class="letter-salutation">Işıl'ım,</span>
+        <p>
+          Bekliyor muydun bilmiyorum ama sana bahsettiğim uğraş tam olarak buydu. öyle whatsapp sohpeti üzerinde kalacak bi yazıyla kutlamak istemedim doğum gününü biraz özel olsun istedim, biz gibi, sen gibi özel. bugün 21. yaşının son, 22. yaşının ilk günü. seni çok seviyorum sevgilim. eğrisiyle doğrusuyla varımla yoğumla seni hayal edebileceğin her şeyden çok seviyorum.
+        </p>
+        <p>
+          Nasıl geçtiğini asla anlamadığım 10 ay’a dönüp bakınca hayatımın en güzel zamanlarıymış deme lüksünü bana verdiğin için, en kötü günümüzde bile varlığınla bana şükür sebebi olduğun için, benim bulunduğum kişiliğe evrilmemdeki en büyük en kuvvetli en özel etken olduğun için, ne zaman düşsem destek olmaya çalışıp hakkında en ufak fikrinin dahi olmadığı konularda araştırmalar yapıp bana elinden gelen en iyi şekilde yardımcı olmaya çalıştığın için…. (o kadar örnek verebilirim ki o dünya üzerindeki en güzel kalple senin kalbinle alakalı) 
+        </p>
+        <p>
+          teşekkür ederim. senin kalbinin güzelliği yüzüne vurmuş ve ben bu konuda çok ciddiyim. rabbim bu yaşını sana en az kalbin, yüzün kadar güzel geçirmeni nasip eylesin. her şey gönlünce istediğin gibi dilediğin gibi olsun. iyi ki varsın iyi ki benimsin sevgilim. koynumda yanımda yamacımda nice 22-23-24…78-79’lara. iyi doğdun zümrüt gözlüm ♥️
+        </p>
+      </div>
+      <div class="letter-sign">
+        Seni çok seven sevgilin, <strong>Aziz</strong> 💛
+      </div>
+    </div>
+  </div>
+
+  <!-- POLAROİD SCATTER -->
+  <div class="page">
+    <div class="scatter-section">
+      <p class="eyebrow">fotoğraflarımız</p>
+
+      <div class="scatter-canvas" id="scatter">
+
+        <!-- 
+          FOTOĞRAF EKLEMEK İÇİN:
+          .pol-ph yerine: <img src="images/fotoX.jpg" alt="" />
+          koy, .pol-ph div'ini sil.
+        -->
+
+        <div class="pol pol-lg" style="top:10px; left:5%; transform:rotate(-3deg); z-index:3;">
+          
+           <img src="images/foto1.jpg" alt="" /> 
+          <div class="pol-caption">bu günü hatırlıyor musun</div>
+        </div>
+
+        <div class="pol pol-md" style="top:30px; right:4%; transform:rotate(5deg); z-index:2;">
+          
+          <img src="images/foto2.jpg" alt="" /> 
+          <div class="pol-caption"></div>
+        </div>
+
+        <div class="pol pol-sm" style="top:260px; left:38%; transform:rotate(-7deg); z-index:5;">
+         
+          <img src="images/foto3.jpg" alt="" /> 
+          <div class="pol-caption">tatlı çıkmışız</div>
+        </div>
+
+        <div class="pol pol-lg" style="top:320px; left:2%; transform:rotate(4deg); z-index:1;">
+          
+           <img src="images/foto4.jpg" alt="" /> 
+          <div class="pol-caption"></div>
+        </div>
+
+        <div class="pol pol-md" style="top:380px; right:6%; transform:rotate(-6deg); z-index:4;">
+         
+           <img src="images/foto5.jpg" alt="" /> 
+          <div class="pol-caption">seni seviyorum</div>
+        </div>
+
+        <div class="pol pol-sm" style="top:600px; left:18%; transform:rotate(3deg); z-index:2;">
+          
+          <img src="images/foto6.jpg" alt="" /> 
+          <div class="pol-caption"></div>
+        </div>
+
+        <div class="pol pol-md" style="top:620px; right:10%; transform:rotate(-2deg); z-index:3;">
+         
+           <img src="images/foto7.jpg" alt="" /> 
+          <div class="pol-caption">favorim</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+      <!-- Yeni an eklemek için kopyala:
+      <div class="moment-item">
+        <span class="moment-emoji">emoji</span>
+        <p class="moment-text">Buraya yaz.</p>
+      </div>
+      -->
+
+    </div>
+  </div>
+
+
+
+  <!-- QUIZ -->
+  <div class="page">
+    <div class="quiz-section">
+      <p class="eyebrow">küçük bir test</p>
+      <p class="quiz-intro">Bakalım bizi ne kadar iyi tanıyorsun? Cevabını seç; doğru cevap hemen ortaya çıksın.</p>
+
+      <div class="quiz-progress" aria-hidden="true">
+        <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+      </div>
+
+      <div class="quiz-stage" id="quiz-stage">
+
+        <div class="quiz-card active" data-answer="0"
+             data-correct-note="Aslında hepsinin hayalini kuruyorum ama 'En çok' dediğin için doğru cevap bu"
+             data-wrong-note="Yok artık sevgilim. En çok demişim.">
+          <p class="quiz-number">soru 01 · 3</p>
+          <p class="quiz-question">Ben en çok neyin hayalini kuruyorum?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">Seninle bir gelecek</button>
+            <button class="quiz-option" data-value="1">Mercedes bi jeep</button>
+            <button class="quiz-option" data-value="2">Eskisinden de iyi bir market zinciri</button>
+            <button class="quiz-option" data-value="3">İşimin en başarılısı olmak</button>
+          </div>
+          <div class="quiz-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="quiz-card" data-answer="2"
+             data-correct-note="Evet, hileli soruydu. Hepsi doğruydu 🤍"
+             data-wrong-note="Seçtiğin de doğru sayılır ama asıl cevap soyadında gizli, tabii ki.">
+          <p class="quiz-number">soru 02 · 3</p>
+          <p class="quiz-question">Ben bu hayatta en çok neyi severim?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">Seni</button>
+            <button class="quiz-option" data-value="1">Işılı</button>
+            <button class="quiz-option" data-value="2">Işıl Bulanık'ı</button>
+            <button class="quiz-option" data-value="3">Seni</button>
+          </div>
+          <div class="quiz-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="quiz-card" data-answer="0"
+             data-correct-note="Sitenin de, benim de bütün özeti bu zaten."
+             data-wrong-note="Güzel denemeydi ama en önemli gerçek: seni çok seviyorum.">
+          <p class="quiz-number">soru 03 · 3</p>
+          <p class="quiz-question">Bu sitedeki en önemli gerçek nedir?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">Seni çok seviyorum</button>
+            <button class="quiz-option" data-value="1">Bowling rövanşı istiyorum</button>
+            <button class="quiz-option" data-value="2">İkisi de ama ilki biraz daha fazla</button>
+          </div>
+          <div class="quiz-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="quiz-finish" id="quiz-finish" aria-live="polite">
+          <span class="quiz-finish-score" id="quiz-finish-score"></span>
+          <span id="quiz-finish-text"></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- YENİ YAŞ PLANLARI -->
+  <div class="page">
+    <div class="plans-section">
+      <p class="eyebrow">22 yaşında beraber yapacaklarımız</p>
+      <p class="plans-note">Bu yaşın sadece güzel geçmesini değil, senin dönüp baktığında “iyi ki yaşamışım” diyeceğin anlarla dolmasını istiyorum. Ben de mümkün olan her anında yanında olmak istiyorum.</p>
+
+      <div class="plans-list">
+        <div class="plan-item">
+          <p class="plan-tag">01 · küçük kaçamak</p>
+          <h3 class="plan-title">Birlikte yeni bir yere gideceğiz.</h3>
+          <p class="plan-text">Daha önce ikimizin de görmediği bir yere gidip bütün günü plansız yaşayacağız. Yanlış sokağa saparsak da günün hikâyesi o olacak.</p>
+        </div>
+
+        <div class="plan-item">
+          <p class="plan-tag">02 · bizim günümüz</p>
+          <h3 class="plan-title">Sadece ikimize ait bir gelenek oluşturacağız.</h3>
+          <p class="plan-text">Her ay aynı gün küçük de olsa birlikte bir şey yapacağız. Bazen dışarı çıkacağız, bazen evde film açacağız; ama o gün bizim olacak.</p>
+        </div>
+
+        <div class="plan-item">
+          <p class="plan-tag">03 · bol bol fotoğraf</p>
+          <h3 class="plan-title">Bu yaşından geriye bir sürü anı bırakacağız.</h3>
+          <p class="plan-text">Sadece güzel göründüğümüz fotoğraflar değil; gülerken, saçmalarken, yorgunken ve hayat gerçekten yaşanırken çekilmiş olanlardan.</p>
+        </div>
+
+        <div class="plan-item">
+          <p class="plan-tag">04 · bir hayalini gerçekleştirmek</p>
+          <h3 class="plan-title">Uzun zamandır istediğin bir şeyi beraber yapacağız.</h3>
+          <p class="plan-text">Bunu sen seçebilirsin. Benim görevim bahane üretmeden yanında olmak ve o günü gerçekten unutulmaz hâle getirmek.</p>
+        </div>
+      </div>
+
+      <div class="promise-box">Bu liste bir “yapılacaklar listesi” değil. Senin yeni yaşında yanında olacağıma dair küçük bir söz.</div>
+    </div>
+  </div>
+
+  <!-- KAPANIŞ -->
+  <div class="closing">
+    <span class="closing-heart">💛</span>
+    <h2>İyi ki varsın, Işılım.</h2>
+    <p>Bir ömür beraber oluruz umarım.</p>
+  </div>
+
+  <script>
+    // ── SAYAÇ ──
+    const startDate = new Date('2025-09-10T00:00:00');
+
+    function updateCounter() {
+      const now = new Date();
+      let diff = now - startDate;
+      if (diff < 0) diff = 0;
+      const totalSec = Math.floor(diff / 1000);
+      document.getElementById('c-gun').textContent  = Math.floor(totalSec / 86400);
+      document.getElementById('c-saat').textContent = String(Math.floor((totalSec % 86400) / 3600)).padStart(2,'0');
+      document.getElementById('c-dak').textContent  = String(Math.floor((totalSec % 3600) / 60)).padStart(2,'0');
+      document.getElementById('c-san').textContent  = String(totalSec % 60).padStart(2,'0');
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+    // ── QUIZ ──
+    const quizCards = [...document.querySelectorAll('.quiz-card')];
+    const quizProgressBar = document.getElementById('quiz-progress-bar');
+    const quizFinish = document.getElementById('quiz-finish');
+    const quizFinishScore = document.getElementById('quiz-finish-score');
+    const quizFinishText = document.getElementById('quiz-finish-text');
+
+    let currentQuestion = 0;
+    let quizScore = 0;
+    let quizLocked = false;
+
+    function updateQuizProgress() {
+      quizProgressBar.style.width = `${(currentQuestion / quizCards.length) * 100}%`;
+    }
+
+    function showNextQuestion() {
+      const currentCard = quizCards[currentQuestion];
+      currentCard.classList.add('leaving');
+
+      setTimeout(() => {
+        currentCard.classList.remove('active', 'leaving');
+        currentQuestion++;
+        updateQuizProgress();
+
+        if (currentQuestion < quizCards.length) {
+          quizCards[currentQuestion].classList.add('active');
+          quizLocked = false;
+        } else {
+          quizProgressBar.style.width = '100%';
+          quizFinishScore.textContent = `${quizScore}/${quizCards.length}`;
+
+          if (quizScore === quizCards.length) {
+            quizFinishText.textContent = 'Hepsini bildin. Zaten bizi senden iyi kim bilebilir ki? Ödülün sınırsız öpücük.';
+          } else if (quizScore === quizCards.length - 1) {
+            quizFinishText.textContent = 'Neredeyse kusursuz. Bir yanlışın cezası da bana sarılmak olsun.';
+          } else {
+            quizFinishText.textContent = 'Doğum günün diye bütün yanlışlar affedildi. Zaten bu testin tek gerçek cevabı seni çok sevdiğim.';
+          }
+
+          quizFinish.classList.add('show');
+        }
+      }, 320);
+    }
+
+    quizCards.forEach(card => {
+      const options = [...card.querySelectorAll('.quiz-option')];
+      const feedback = card.querySelector('.quiz-feedback');
+
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          if (quizLocked) return;
+          quizLocked = true;
+
+          const correctValue = card.dataset.answer;
+          const isCorrect = option.dataset.value === correctValue;
+          const correctOption = card.querySelector(`[data-value="${correctValue}"]`);
+
+          options.forEach(btn => btn.disabled = true);
+          correctOption.classList.add('correct');
+
+          if (isCorrect) {
+            quizScore++;
+            feedback.textContent = `Doğru ♥ ${card.dataset.correctNote}`;
+            feedback.classList.add('is-correct', 'show');
+          } else {
+            option.classList.add('wrong');
+            feedback.textContent = `Olmadı 😌 ${card.dataset.wrongNote}`;
+            feedback.classList.add('is-wrong', 'show');
+          }
+
+          setTimeout(showNextQuestion, 2600);
+        });
+      });
+    });
+
+    updateQuizProgress();
+
+
+  </script>
+</body>
+</html>
