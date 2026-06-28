@@ -455,6 +455,73 @@
       margin-bottom: 14px;
     }
 
+    /* ── AÇIK UÇLU SORULAR ── */
+    .open-section {
+      padding: 82px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .open-intro {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #55464b;
+      margin: -18px 0 42px;
+    }
+
+    .open-list {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .open-item {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(79,43,57,0.05);
+    }
+
+    .open-num {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .open-q {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .open-answer {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px 15px;
+      font: inherit;
+      font-size: 15px;
+      color: var(--text);
+      background: white;
+      resize: vertical;
+      transition: border-color .2s ease, box-shadow .2s ease;
+      line-height: 1.7;
+      outline: none;
+    }
+
+    .open-answer:focus {
+      border-color: #dca5b4;
+      box-shadow: 0 0 0 3px rgba(232,116,138,0.12);
+    }
+
+    .open-answer::placeholder { color: #ccc; }
+
     /* ── YENİ YAŞ PLANI ── */
     .plans-section {
       padding: 82px 0;
@@ -618,13 +685,13 @@
       <div class="letter-body">
         <span class="letter-salutation">Işıl'ım,</span>
         <p>
-          Bekliyor muydun bilmiyorum ama sana bahsettiğim uğraş tam olarak buydu. öyle whatsapp sohpeti üzerinde kalacak bi yazıyla kutlamak istemedim doğum gününü biraz özel olsun istedim, biz gibi, sen gibi özel. bugün 21. yaşının son, 22. yaşının ilk günü. seni çok seviyorum sevgilim. eğrisiyle doğrusuyla varımla yoğumla seni hayal edebileceğin her şeyden çok seviyorum.
+          Bekliyor muydun bilmiyorum ama sana bahsettiğim uğraş tam olarak buydu. öyle whatsapp sohbeti üzerinde kalacak bi yazıyla kutlamak istemedim doğum gününü biraz özel olsun istedim, biz gibi, sen gibi özel. bugün 21. yaşının son, 22. yaşının ilk günü. seni çok seviyorum sevgilim. eğrisiyle doğrusuyla varımla yoğumla seni hayal edebileceğin her şeyden çok seviyorum.
         </p>
         <p>
           Nasıl geçtiğini asla anlamadığım 10 ay’a dönüp bakınca hayatımın en güzel zamanlarıymış deme lüksünü bana verdiğin için, en kötü günümüzde bile varlığınla bana şükür sebebi olduğun için, benim bulunduğum kişiliğe evrilmemdeki en büyük en kuvvetli en özel etken olduğun için, ne zaman düşsem destek olmaya çalışıp hakkında en ufak fikrinin dahi olmadığı konularda araştırmalar yapıp bana elinden gelen en iyi şekilde yardımcı olmaya çalıştığın için…. (o kadar örnek verebilirim ki o dünya üzerindeki en güzel kalple senin kalbinle alakalı) 
         </p>
         <p>
-          teşekkür ederim. senin kalbinin güzelliği yüzüne vurmuş ve ben bu konuda çok ciddiyim. rabbim bu yaşını sana en az kalbin, yüzün kadar güzel geçirmeni nasip eylesin. her şey gönlünce istediğin gibi dilediğin gibi olsun. iyi ki varsın iyi ki benimsin sevgilim. koynumda yanımda yamacımda nice 22-23-24…78-79’lara. iyi doğdun zümrüt gözlüm ♥️
+          teşekkür ederim. senin kalbinin güzelliği yüzüne vurmuş ve ben bu konuda çok ciddiyim. rabbim bu yaşını sana en az kalbin, yüzün, gözlerin kadar güzel geçirmeni nasip eylesin. her şey gönlünce istediğin gibi dilediğin gibi olsun. iyi ki varsın iyi ki benimsin sevgilim. koynumda yanımda yamacımda nice 22-23-24…78-79’lara. iyi doğdun zümrüt gözlüm ♥️
         </p>
       </div>
       <div class="letter-sign">
@@ -719,7 +786,7 @@
         <div class="quiz-card active" data-answer="0"
              data-correct-note="Aslında hepsinin hayalini kuruyorum ama 'En çok' dediğin için doğru cevap bu"
              data-wrong-note="Yok artık sevgilim. En çok demişim.">
-          <p class="quiz-number">soru 01 · 3</p>
+          <p class="quiz-number">soru 01 · 4</p>
           <p class="quiz-question">Ben en çok neyin hayalini kuruyorum?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-value="0">Seninle bir gelecek</button>
@@ -733,7 +800,7 @@
         <div class="quiz-card" data-answer="2"
              data-correct-note="Evet, hileli soruydu. Hepsi doğruydu 🤍"
              data-wrong-note="Seçtiğin de doğru sayılır ama asıl cevap soyadında gizli, tabii ki.">
-          <p class="quiz-number">soru 02 · 3</p>
+          <p class="quiz-number">soru 02 · 4</p>
           <p class="quiz-question">Ben bu hayatta en çok neyi severim?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-value="0">Seni</button>
@@ -744,10 +811,24 @@
           <div class="quiz-feedback" aria-live="polite"></div>
         </div>
 
+        <div class="quiz-card" data-answer="1"
+             data-correct-note="gözlerin benim en güzel rengim zaten 🤍"
+             data-wrong-note="gözlerin? 🥲">
+          <p class="quiz-number">soru 03 · 4</p>
+          <p class="quiz-question">Benim en sevdiğim renk ne?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">Siyah</button>
+            <button class="quiz-option" data-value="1">Mavi</button>
+            <button class="quiz-option" data-value="2">Beyaz</button>
+            <button class="quiz-option" data-value="3">Yeşil</button>
+          </div>
+          <div class="quiz-feedback" aria-live="polite"></div>
+        </div>
+
         <div class="quiz-card" data-answer="0"
              data-correct-note="Sitenin de, benim de bütün özeti bu zaten."
              data-wrong-note="Güzel denemeydi ama en önemli gerçek: seni çok seviyorum.">
-          <p class="quiz-number">soru 03 · 3</p>
+          <p class="quiz-number">soru 04 · 4</p>
           <p class="quiz-question">Bu sitedeki en önemli gerçek nedir?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-value="0">Seni çok seviyorum</button>
@@ -766,29 +847,76 @@
     </div>
   </div>
 
+  <!-- AÇIK UÇLU SORULAR -->
+  <div class="page">
+    <div class="open-section">
+      <p class="eyebrow">sana sormak istiyorum</p>
+      <p class="open-intro">Cevapları doğru ya da yanlış değil — sadece senin. İstersen düşün, istersen hemen yaz.</p>
+      <div class="open-list" id="open-list">
+
+        <div class="open-item">
+          <p class="open-num">01</p>
+          <p class="open-q">Beni ilk gördüğünde aklından ne geçmişti? İlk izlenim, ilk his — ne olursa olsun.</p>
+          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+        </div>
+
+        <div class="open-item">
+          <p class="open-num">02</p>
+          <p class="open-q">Sende en çok hangi özelliğimi seviyorsun? Biri seçmek zorunda kalsaydın.</p>
+          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+        </div>
+
+        <div class="open-item">
+          <p class="open-num">03</p>
+          <p class="open-q">Bir günlüğüne benim yerime geçsen — kim olduğumu bilerek, o günü nasıl geçirirdin?</p>
+          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+        </div>
+
+        <div class="open-item">
+          <p class="open-num">04</p>
+          <p class="open-q">Beraber piyangodan 100 milyon TL kazansak — ilk aldığımız şey ne olurdu?</p>
+          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+        </div>
+
+        <div class="open-item">
+          <p class="open-num">05</p>
+          <p class="open-q">Birbirimize lakap taksak — benimki ne olurdu? (Ciddi düşün 🙂)</p>
+          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+        </div>
+
+        <div class="open-item">
+          <p class="open-num">06</p>
+          <p class="open-q">10 yıl sonra bizi nasıl hayal ediyorsun? Neredeyiz, ne yapıyoruz?</p>
+          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- YENİ YAŞ PLANLARI -->
   <div class="page">
     <div class="plans-section">
       <p class="eyebrow">22 yaşında beraber yapacaklarımız</p>
-      <p class="plans-note">Bu yaşın sadece güzel geçmesini değil, senin dönüp baktığında “iyi ki yaşamışım” diyeceğin anlarla dolmasını istiyorum. Ben de mümkün olan her anında yanında olmak istiyorum.</p>
+      <p class="plans-note">Bu yaşının sadece 2 rakamın yan yana gelişi değil yarın bi gün arkadaşlarına hayatımda geçirdiğim en güzel yaşımdı diyeceğin bir yıl olsun istiyorum. Ben de mümkün olan her anında yanında olacağıma söz veriyorum.</p>
 
       <div class="plans-list">
         <div class="plan-item">
-          <p class="plan-tag">01 · küçük kaçamak</p>
-          <h3 class="plan-title">Birlikte yeni bir yere gideceğiz.</h3>
-          <p class="plan-text">Daha önce ikimizin de görmediği bir yere gidip bütün günü plansız yaşayacağız. Yanlış sokağa saparsak da günün hikâyesi o olacak.</p>
+          <p class="plan-tag">01 · ufak tatiller</p>
+          <h3 class="plan-title">Beraber gezip göreceğiz.</h3>
+          <p class="plan-text">erhangi bi haftasonu seninle plansız şekilde 2 gün bu şehirden ve hengamesinden uzaklaşalım istiyorum.</p>
         </div>
 
         <div class="plan-item">
           <p class="plan-tag">02 · bizim günümüz</p>
-          <h3 class="plan-title">Sadece ikimize ait bir gelenek oluşturacağız.</h3>
-          <p class="plan-text">Her ay aynı gün küçük de olsa birlikte bir şey yapacağız. Bazen dışarı çıkacağız, bazen evde film açacağız; ama o gün bizim olacak.</p>
+          <h3 class="plan-title">Gelenekmiş gibi — seninle ortak bir günümüz olsun.</h3>
+          <p class="plan-text">O gün illa görüşelim. Başka bir şey değil, sadece bizim olsun istiyorum.</p>
         </div>
 
         <div class="plan-item">
           <p class="plan-tag">03 · bol bol fotoğraf</p>
-          <h3 class="plan-title">Bu yaşından geriye bir sürü anı bırakacağız.</h3>
-          <p class="plan-text">Sadece güzel göründüğümüz fotoğraflar değil; gülerken, saçmalarken, yorgunken ve hayat gerçekten yaşanırken çekilmiş olanlardan.</p>
+          <h3 class="plan-title">Beraber geçirdiğimiz her zamana bir anı bırakacağız.</h3>
+          <p class="plan-text">İster benim makinelerimle, ister senin yeni aldıklarınla, ister retro kameralarımızla — beraber bir kült oluşturup bir sürü anı biriktireceğiz.</p>
         </div>
 
         <div class="plan-item">
@@ -859,7 +987,7 @@
 
           if (quizScore === quizCards.length) {
             quizFinishText.textContent = 'Hepsini bildin. Zaten bizi senden iyi kim bilebilir ki? Ödülün sınırsız öpücük.';
-          } else if (quizScore === quizCards.length - 1) {
+          } else if (quizScore >= quizCards.length - 1) {
             quizFinishText.textContent = 'Neredeyse kusursuz. Bir yanlışın cezası da bana sarılmak olsun.';
           } else {
             quizFinishText.textContent = 'Doğum günün diye bütün yanlışlar affedildi. Zaten bu testin tek gerçek cevabı seni çok sevdiğim.';
