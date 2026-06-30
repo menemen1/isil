@@ -646,6 +646,132 @@
       .pol-md .pol-ph, .pol-md img { width: 130px; height: 155px; }
       .pol-sm .pol-ph, .pol-sm img { width: 110px; height: 130px; }
     }
+    /* ── GÜNLÜK / POST-IT ── */
+    .diary-section {
+      padding: 84px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .diary-intro {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      color: #55464b;
+      margin: -18px 0 34px;
+    }
+
+    .diary-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+
+    .diary-textarea {
+      width: 100%;
+      min-height: 100px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      font: inherit;
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      color: var(--text);
+      background: white;
+      resize: vertical;
+    }
+
+    .diary-textarea:focus {
+      outline: none;
+      border-color: var(--soft);
+    }
+
+    .diary-save-btn {
+      align-self: flex-start;
+      border: none;
+      background: var(--pink);
+      color: white;
+      font: inherit;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .diary-save-btn:hover { transform: translateY(-1px); opacity: 0.92; }
+
+    .diary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .diary-empty {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .postit {
+      position: relative;
+      background: #fff8d6;
+      border-radius: 4px;
+      padding: 20px 18px 44px;
+      min-height: 140px;
+      box-shadow: 3px 6px 16px rgba(42,26,32,0.12);
+      transform: rotate(var(--tilt, -1.5deg));
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .postit:nth-child(3n) { --tilt: 1.4deg; background: #ffe9ee; }
+    .postit:nth-child(3n+1) { --tilt: -1.6deg; background: #fff8d6; }
+    .postit:nth-child(3n+2) { --tilt: 0.8deg; background: #e8f3e8; }
+
+    .postit:hover {
+      transform: rotate(0deg) translateY(-3px);
+      box-shadow: 5px 12px 22px rgba(42,26,32,0.18);
+    }
+
+    .postit-text {
+      font-family: 'Lora', serif;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #3a3030;
+      white-space: pre-wrap;
+      word-break: break-word;
+      flex: 1;
+    }
+
+    .postit-date {
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-top: 12px;
+    }
+
+    .postit-remove {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      border: none;
+      background: transparent;
+      color: var(--soft);
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      padding: 4px 0;
+    }
+
+    .postit-remove:hover { color: var(--pink); }
   </style>
 </head>
 <body>
@@ -681,7 +807,7 @@
   <!-- MEKTUP -->
   <div class="page">
     <div class="letter-section">
-      <p class="eyebrow">sana bir şey söylemek istedim</p>
+      <p class="eyebrow">sana ufak bi not</p>
       <div class="letter-body">
         <span class="letter-salutation">Işıl'ım,</span>
         <p>
@@ -930,11 +1056,26 @@
     </div>
   </div>
 
+  <!-- GÜNLÜK / POST-IT -->
+  <div class="page">
+    <div class="diary-section">
+      <p class="eyebrow">günlüğüm</p>
+      <p class="diary-intro">Günün sonunda aklında ne varsa buraya bırak. İstersen birkaç kelime, istersen uzun uzun — sonra istediğin zaman kaldırabilirsin.</p>
+
+      <form class="diary-form" id="diary-form">
+        <textarea class="diary-textarea" id="diary-input" placeholder="bugün…" required></textarea>
+        <button type="submit" class="diary-save-btn">post-it bırak</button>
+      </form>
+
+      <div class="diary-grid" id="diary-grid"></div>
+    </div>
+  </div>
+
   <!-- KAPANIŞ -->
   <div class="closing">
     <span class="closing-heart">💛</span>
     <h2>İyi ki varsın, Işılım.</h2>
-    <p>Bir ömür beraber oluruz umarım.</p>
+    <p>beraber bir ömüre, iyi ki doğdun.</p>
   </div>
 
   <script>
@@ -1032,6 +1173,69 @@
     updateQuizProgress();
 
 
+    // ── GÜNLÜK / POST-IT ──
+    const DIARY_KEY = 'isilim-gunluk-notlari';
+
+    function loadDiaryEntries() {
+      try {
+        return JSON.parse(localStorage.getItem(DIARY_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveDiaryEntries(entries) {
+      localStorage.setItem(DIARY_KEY, JSON.stringify(entries));
+    }
+
+    function formatDiaryDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    function renderDiaryEntries() {
+      const grid = document.getElementById('diary-grid');
+      const entries = loadDiaryEntries();
+      grid.innerHTML = '';
+
+      if (entries.length === 0) {
+        grid.innerHTML = '<p class="diary-empty">henüz bir not yok…</p>';
+        return;
+      }
+
+      entries.slice().reverse().forEach(entry => {
+        const note = document.createElement('div');
+        note.className = 'postit';
+        note.innerHTML = `
+          <p class="postit-text"></p>
+          <p class="postit-date"></p>
+          <button class="postit-remove">kaldır</button>
+        `;
+        note.querySelector('.postit-text').textContent = entry.text;
+        note.querySelector('.postit-date').textContent = formatDiaryDate(entry.date);
+        note.querySelector('.postit-remove').addEventListener('click', () => {
+          const updated = loadDiaryEntries().filter(e => e.id !== entry.id);
+          saveDiaryEntries(updated);
+          renderDiaryEntries();
+        });
+        grid.appendChild(note);
+      });
+    }
+
+    document.getElementById('diary-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('diary-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const entries = loadDiaryEntries();
+      entries.push({ id: Date.now().toString(), text, date: new Date().toISOString() });
+      saveDiaryEntries(entries);
+      input.value = '';
+      renderDiaryEntries();
+    });
+
+    renderDiaryEntries();
   </script>
 </body>
 </html>
