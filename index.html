@@ -771,7 +771,33 @@
       padding: 4px 0;
     }
 
-    .postit-remove:hover { color: var(--pink); }
+    .open-submit-btn {
+      margin-top: 8px;
+      align-self: flex-start;
+      border: none;
+      background: var(--pink);
+      color: white;
+      font: inherit;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      padding: 13px 28px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .open-submit-btn:hover { transform: translateY(-1px); opacity: 0.92; }
+    .open-submit-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+    .open-submit-msg {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--pink);
+      margin-top: 14px;
+      min-height: 18px;
+    }
   </style>
 </head>
 <body>
@@ -807,17 +833,17 @@
   <!-- MEKTUP -->
   <div class="page">
     <div class="letter-section">
-      <p class="eyebrow">sana ufak bi not</p>
+      <p class="eyebrow">sana bir şey söylemek istedim</p>
       <div class="letter-body">
         <span class="letter-salutation">Işıl'ım,</span>
         <p>
           Bekliyor muydun bilmiyorum ama sana bahsettiğim uğraş tam olarak buydu. öyle whatsapp sohbeti üzerinde kalacak bi yazıyla kutlamak istemedim doğum gününü biraz özel olsun istedim, biz gibi, sen gibi özel. bugün 21. yaşının son, 22. yaşının ilk günü. seni çok seviyorum sevgilim. eğrisiyle doğrusuyla varımla yoğumla seni hayal edebileceğin her şeyden çok seviyorum.
         </p>
         <p>
-          Nasıl geçtiğini asla anlamadığım 10 ay’a dönüp bakınca hayatımın en güzel zamanlarıymış deme lüksünü bana verdiğin için, en kötü günümüzde bile varlığınla bana şükür sebebi olduğun için, benim bulunduğum kişiliğe evrilmemdeki en büyük en kuvvetli en özel etken olduğun için, ne zaman düşsem destek olmaya çalışıp hakkında en ufak fikrinin dahi olmadığı konularda araştırmalar yapıp bana elinden gelen en iyi şekilde yardımcı olmaya çalıştığın için…. (o kadar örnek verebilirim ki o dünya üzerindeki en güzel kalple senin kalbinle alakalı) teşekkür ederim.
+          Nasıl geçtiğini asla anlamadığım 10 ay’a dönüp bakınca hayatımın en güzel zamanlarıymış deme lüksünü bana verdiğin için, en kötü günümüzde bile varlığınla bana şükür sebebi olduğun için, benim bulunduğum kişiliğe evrilmemdeki en büyük en kuvvetli en özel etken olduğun için, ne zaman düşsem destek olmaya çalışıp hakkında en ufak fikrinin dahi olmadığı konularda araştırmalar yapıp bana elinden gelen en iyi şekilde yardımcı olmaya çalıştığın için…. (o kadar örnek verebilirim ki o dünya üzerindeki en güzel kalple senin kalbinle alakalı) 
         </p>
         <p>
-          senin kalbinin güzelliği yüzüne vurmuş ve ben bu konuda çok ciddiyim. rabbim bu yaşını sana en az kalbin, yüzün, gözlerin kadar güzel geçirmeni nasip eylesin. her şey gönlünce istediğin gibi dilediğin gibi olsun. iyi ki varsın iyi ki benimsin sevgilim. koynumda yanımda yamacımda nice 22-23-24…78-79’lara. iyi doğdun zümrüt gözlüm ♥️
+          teşekkür ederim. senin kalbinin güzelliği yüzüne vurmuş ve ben bu konuda çok ciddiyim. rabbim bu yaşını sana en az kalbin, yüzün, gözlerin kadar güzel geçirmeni nasip eylesin. her şey gönlünce istediğin gibi dilediğin gibi olsun. iyi ki varsın iyi ki benimsin sevgilim. koynumda yanımda yamacımda nice 22-23-24…78-79’lara. iyi doğdun zümrüt gözlüm ♥️
         </p>
       </div>
       <div class="letter-sign">
@@ -978,45 +1004,49 @@
     <div class="open-section">
       <p class="eyebrow">sana sormak istiyorum</p>
       <p class="open-intro">Cevapları doğru ya da yanlış değil — sadece senin. İstersen düşün, istersen hemen yaz.</p>
-      <div class="open-list" id="open-list">
+      <form class="open-list" id="open-list" name="acik-uclu-sorular" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="acik-uclu-sorular" />
 
         <div class="open-item">
           <p class="open-num">01</p>
           <p class="open-q">Beni ilk gördüğünde aklından ne geçmişti? İlk izlenim, ilk his — ne olursa olsun.</p>
-          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+          <textarea class="open-answer" name="soru-1" placeholder="buraya yaz…" rows="3"></textarea>
         </div>
 
         <div class="open-item">
           <p class="open-num">02</p>
           <p class="open-q">Sende en çok hangi özelliğimi seviyorsun? Biri seçmek zorunda kalsaydın.</p>
-          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+          <textarea class="open-answer" name="soru-2" placeholder="buraya yaz…" rows="3"></textarea>
         </div>
 
         <div class="open-item">
           <p class="open-num">03</p>
           <p class="open-q">Bir günlüğüne benim yerime geçsen — kim olduğumu bilerek, o günü nasıl geçirirdin?</p>
-          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+          <textarea class="open-answer" name="soru-3" placeholder="buraya yaz…" rows="3"></textarea>
         </div>
 
         <div class="open-item">
           <p class="open-num">04</p>
           <p class="open-q">Beraber piyangodan 100 milyon TL kazansak — ilk aldığımız şey ne olurdu?</p>
-          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+          <textarea class="open-answer" name="soru-4" placeholder="buraya yaz…" rows="3"></textarea>
         </div>
 
         <div class="open-item">
           <p class="open-num">05</p>
           <p class="open-q">Birbirimize lakap taksak — benimki ne olurdu? (Ciddi düşün 🙂)</p>
-          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+          <textarea class="open-answer" name="soru-5" placeholder="buraya yaz…" rows="3"></textarea>
         </div>
 
         <div class="open-item">
           <p class="open-num">06</p>
           <p class="open-q">10 yıl sonra bizi nasıl hayal ediyorsun? Neredeyiz, ne yapıyoruz?</p>
-          <textarea class="open-answer" placeholder="buraya yaz…" rows="3"></textarea>
+          <textarea class="open-answer" name="soru-6" placeholder="buraya yaz…" rows="3"></textarea>
         </div>
 
-      </div>
+        <button type="submit" class="open-submit-btn" id="open-submit-btn">cevapları gönder</button>
+        <p class="open-submit-msg" id="open-submit-msg"></p>
+
+      </form>
     </div>
   </div>
 
@@ -1075,7 +1105,7 @@
   <div class="closing">
     <span class="closing-heart">💛</span>
     <h2>İyi ki varsın, Işılım.</h2>
-    <p>beraber bir ömüre, iyi ki doğdun.</p>
+    <p>Bir ömür beraber oluruz umarım.</p>
   </div>
 
   <script>
@@ -1236,6 +1266,36 @@
     });
 
     renderDiaryEntries();
+    // ── AÇIK UÇLU SORULAR (Netlify Form) ──
+    const openForm = document.getElementById('open-list');
+    const openSubmitBtn = document.getElementById('open-submit-btn');
+    const openSubmitMsg = document.getElementById('open-submit-msg');
+
+    if (openForm) {
+      openForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        openSubmitBtn.disabled = true;
+        openSubmitBtn.textContent = 'gönderiliyor…';
+
+        const formData = new FormData(openForm);
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        })
+          .then(() => {
+            openSubmitBtn.textContent = 'gönderildi ✓';
+            openSubmitMsg.textContent = 'Cevapların bana ulaştı, teşekkür ederim ♥';
+          })
+          .catch(() => {
+            openSubmitBtn.disabled = false;
+            openSubmitBtn.textContent = 'cevapları gönder';
+            openSubmitMsg.textContent = 'Bir şeyler ters gitti, tekrar dener misin?';
+          });
+      });
+    }
+
   </script>
 </body>
 </html>
